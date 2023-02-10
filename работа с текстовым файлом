@@ -1,7 +1,151 @@
-#Запись двух строк в файл
+Запись двух строк в файл
 
-file_obj= open ('file_to_write.txt', 'w')
+file_obj= open ('file_toWrite.txt', 'w')
+
 file_obj.write(' Первая строка дл записи \n И вторая строка ')
+
 file_obj.close()
+
+
+
+чтение строк из файла:
+
+вариант 1:
+
+ни в какую переменную они не записываются
+
+f= open ('file_toWrite.txt', 'r')
+
+for line in f:
+
+         print(line, end='')
+
+f.close()
+
+
+
+вариант 2:
+
+Считывает одну строку с файла. Читаем первую строку. Пока строки не закончатся, то читаем их дальше
+
+f= open ('file_toWrite.txt', 'r')
+
+line=f.readline()
+
+while line:
+
+      print(line, end='')
+
+      line = f.readline()
+
+f.close()
+
+
+
+Вариант 3:
+
+считывает строки и их помещает в список, вместе с разделителями \n
+
+f=open('file_towrite.txt','r')
+
+print(f.read())
+
+f.close()
+
+
+
+Вариант 4
+
+f=open('file_toWrite.txt','r')
+
+print(f.read())
+
+f.close()
+
+
+
+Заполнить ясейку несколько раз
+
+записать время выполнения ячейки:
+
+Закрывать файл не требуется
+
+считываем и выводим файл
+
+from datetime import datetime
+
+now=datetime.now()
+
+with open('my_file.txt','a') as f:
+
+     f.write(datetime.strftime(datetime.now(), "%Y.%m.%d %H:%M:%S\n"))
+
+
+
+with open('my_file.txt','a') as f:
+
+     for line in f:
+
+     print(line, end='')
+
+
+
+Чтение и запись в файл с помощью pickie
+
+Специальный модуль для сериализации- это процесс при котором наши данные преобразуем поток данных в байты. разбиваем на блоки, называются ??. их более удобно хранить и меньше занимают места  и десериализации объектов с записью в бинарный файл. wb это запись в бинарном виде
+
+
+
+записываем в файл
+
+import pickle
+
+FILENAME = "users.dat"
+
+data = [1, 2, 3]
+
+with open(FILENAME, "wb") as file:
+
+       pickle.dump(data, file)
+
+
+
+чтение из файла
+
+with open(FILENAME, "fb") as file:
+
+             results = pickle.load(file)
+
+print(results)
+
+
+
+очистим файл, запишес в бинарный файл три числа и затем прочитать их
+
+open(FILENAME, "wb")
+
+for i in range(3):
+
+      num=int(input('Введите целое число'))
+
+      with open(FILENAME, "ab") as file:
+
+                 pickle.dump(num, file)
+
+читаем файл так:
+
+with open(FILENAME, "rb") as file:
+
+          for i in range(3):
+
+               results = pickle.load(file)
+
+               print(results)
+
+
+
+
+
+Смешанный режим доступа типо w+
 
 
