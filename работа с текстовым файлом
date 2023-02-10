@@ -1,0 +1,7 @@
+#Запись двух строк в файл
+
+file_obj= open ('file_to_write.txt', 'w')
+file_obj.write(' Первая строка дл записи \n И вторая строка ')
+file_obj.close()
+
+
