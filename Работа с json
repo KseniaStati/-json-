@@ -1,0 +1,63 @@
+Работа с JSON
+
+представляет собой словарь ключ-значение
+
+
+
+import json
+
+#создаём словарь
+
+dats = {}
+
+dats['people]=[]
+
+dats['people].append=({
+
+                 'name':'Scot',
+
+                 'age':'28'
+
+})
+
+
+
+dats['people].append=({
+
+                 'name':'Korova',
+
+                 'age':'56'
+
+})
+
+
+
+dats['people].append=({
+
+                 'name':'Koban',
+
+                 'age':'65'
+
+})
+
+#открываем (создаём) файл  json
+
+with open('dats.txt', 'w') as outfile:
+
+           json.dump(dats, outfile) #функция записи в файл
+
+
+
+Чтение из Json файла
+
+with open('dats.txt') as json_file:
+
+         data= json.load(json_file)#чтение из файла и парсинг его в словарь
+
+        for p in data['people']:
+
+                  print('Name:'+p['name'])
+
+                  print('age:'+p['age'])
+
+                  print('')
