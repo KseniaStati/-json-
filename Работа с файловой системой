@@ -1,0 +1,96 @@
+Работа с файловой системой:
+
+
+
+import os
+
+путь до текущей папки
+
+print(os.getcwd())
+
+
+
+создаём новую папку в текущей:
+
+os.mkdir("New_papka")
+
+
+
+создаём новую папку в текущей
+
+"test_folder" in os.listdir()   # листдир возвращает список всех папок
+
+
+
+Проверим есть ли наша папка в текущем каталоге
+
+"test_folder" in os.listdir()
+
+
+
+переименум папку(файл)
+
+os.rename("test_folder", "test_new_folder")
+
+"test_new_folder" in os.listdir()
+
+
+
+создадим файл в папке
+
+path= r'/users/maria/downloads'
+
+path_to_save= os.path.join(path, "test_folder_new")
+
+path_to_save
+
+
+
+fname= os.path.join(path_to_save, 'test.txt')
+
+f= open(fname, 'w')
+
+f.write('Строка')
+
+f.close
+
+os.listdir(path_to_save)
+
+
+
+Создаем папку
+
+os.chdir(path_to_save)
+
+os.mkdir("to_rename")
+
+
+
+Перемещаем и переименовываем файл:
+
+os.rename(fname, os.path.join(path_to_save, "to_rename", "test2.txt"))
+
+получим информацию о файлах и подкаталогах:
+
+for folder, dirs, files in os.walk(r'/Users/maris/Downloads'):
+
+     print(folder) #фолдер папка, дирс директория, файлс файл
+
+
+
+
+
+#корень директория файл
+
+for root, dirs, files in os.walk(r'/Users/maris/Downloads'):
+
+              print(root)
+
+              for _dir in dirs:
+
+                      print(_dir)
+
+             for _file in files:
+
+                   print(_file)
+
